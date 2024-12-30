@@ -1,36 +1,46 @@
 const inputBox = document.getElementById("todo");
 const listContainer = document.getElementById("list-container");
 
-function addTask(){
-    if(inputBox.value === ""){
+let isEditing = false;
+let currentLi;
+
+function addTask() {
+    if (inputBox.value === "") {
         alert("Please enter a task");
-    }
-    else{
+    } else if (isEditing) {
+        currentLi.innerHTML = inputBox.value + ' <span>\u00d7</span>';
+        isEditing = false; // Reset editing state
+    } else {
         let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
+        li.innerHTML = inputBox.value + ' <span>\u00d7</span>';
         listContainer.appendChild(li);
-        let span = document.createElement("span");
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
     }
     inputBox.value = '';
     saveData();
 }
-listContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "LI"){
-        e.target.classList.toggle("checked");
-        saveData();
-    }
-    else if(e.target.tagName === "SPAN"){
+
+listContainer.addEventListener("click", function(e) {
+    if (e.target.tagName === "LI") {
+        if (!isEditing) {
+            isEditing = true;
+            currentLi = e.target;
+            inputBox.value = currentLi.childNodes[0].nodeValue.trim(); // Set input box value to the task
+        } else {
+            e.target.classList.toggle("checked");
+            saveData();
+        }
+    } else if (e.target.tagName === "SPAN") {
         e.target.parentElement.remove();
         saveData();
     }
 }, false);
 
-function saveData(){
+function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
 }
-function showTask(){
-    listContainer.innerHTML = localStorage.getItem("data");
+
+function showTask() {
+    listContainer.innerHTML = localStorage.getItem("data") || '';
 }
+
 showTask();
