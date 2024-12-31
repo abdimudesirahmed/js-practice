@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    background: linear-gradient(135deg, #153677, #4e085f);
+    border: 5px solid black;
+    height: min-content;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    background: #70A0AF;
+    border: 5px solid red;
+    padding: 20px;
+}
+.card h1{
+    margin-bottom: 10px;
+}
+.grid{
+    border: 5px solid green;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+#button{
+    background: #70A0AF;
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
