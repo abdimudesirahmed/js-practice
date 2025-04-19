@@ -44,3 +44,33 @@ function showTask() {
 }
 
 showTask();
+
+
+
+
+
+
+
+
+
+// hiddne word finding 
+//first check small letters 
+//then log the letters only small ones
+
+function detectWord(a) {
+    var hiddenWord = "";
+    
+    function isLowerCase(char) {
+        return char === char.toLowerCase();
+    }
+
+    for (var i = 0; i < a.length; i++) {
+        if (isLowerCase(a.charAt(i))) {
+            hiddenWord += a.charAt(i);
+        }
+    }
+    return hiddenWord;
+}
+
+var result = detectWord("DSFJHIUSDHFVCXYUHaJFISDUFHUIHDSbHXCVJDVJDdJKDFCISDNVXC JDXVDCJXNiNHXZVJJH");
+console.log(result);

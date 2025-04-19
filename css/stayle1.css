@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    margin-left: 50px;
+    padding: 10px;
+    
+}
+.nav{
+    color: lightcoral;
+    font-size: x-large;
+}
+h1{
+ font-size: xx-large;
+ justify-items: center;
+}
+.img{
+    object-fit: cover;
+    height: auto;
+    width: 75%;
+    margin-top: 10px;
+}
+.large-container{
+    display: flex;
+    gap: 10px;
+}
+
+.small-container{
+    display: flex;
+    gap: 2px;
+}
+
+@media (max-width: 600px) {
+    .small-container {
+      /* Add your styles for small screens here */
+      width: 100%;
+      padding: 10px;
+      display: inline;
+    }
+    .large-container{
+        display: inline;
+    }
+  }
