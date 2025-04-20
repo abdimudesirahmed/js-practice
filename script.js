@@ -74,3 +74,6 @@ function detectWord(a) {
 
 var result = detectWord("DSFJHIUSDHFVCXYUHaJFISDUFHUIHDSbHXCVJDVJDdJKDFCISDNVXC JDXVDCJXNiNHXZVJJH");
 console.log(result);
+
+
+
